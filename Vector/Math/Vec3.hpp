@@ -61,7 +61,7 @@ namespace cw
 		}
 
 
-		Vec3 dotProduct(const Vec3& v , const Vec3& u)
+		static Vec3 dotProduct(const Vec3& v , const Vec3& u)
 		{
 
 			int a1, b1, c1, a2, b2, c2, dot;
@@ -77,7 +77,7 @@ namespace cw
  
 
 
-		Vec3 crossProduct(const Vec3& u, const Vec3& v)
+		static Vec3 crossProduct(const Vec3& u, const Vec3& v)
 		{
 
 			 
@@ -116,7 +116,7 @@ namespace cw
 
 		}
 
-		Vec3 sizeSquare(const Vec3& u, const Vec3& v)
+		static Vec3 sizeSquare(const Vec3& u, const Vec3& v)
 		{
 			float x1, y1,z1,x2,y2,z2,vx,vy,vz, sizesq;
 

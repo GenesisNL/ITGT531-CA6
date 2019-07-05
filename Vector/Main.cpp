@@ -33,6 +33,7 @@ TEST_CASE("It must passed", "[vector]")
 TEST_CASE("It should be initial correctly", "[vector]")
 {
 	Vec2i v(1, 1);
+
 	REQUIRE(v.x == 1);
 	REQUIRE(v.y == 1);
 }
@@ -62,7 +63,13 @@ TEST_CASE("it can multiply a scalar with a vector with * ", "[vector]")
 }
 
 
- 
+TEST_CASE("SizeSquare", "[vector]")
+{
+	Vec2<int> v(1, 1);
+	Vec2<int> u(1, 1);
+	//auto result = Vec2<int>::sizeSquare(u,v);
+	
+}
 
 
  
