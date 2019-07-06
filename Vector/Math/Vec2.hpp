@@ -48,18 +48,20 @@ namespace cw
 
 
 
-		Vec2 size(const Vec2& v)
+		static float size(const Vec2& v)
 		{
+ 
 			float x, y, size;
 
 			x = v.x; y = v.y;
 
-			size = sqrt((x * x) + (y * y));
+			size = sqrtf((x * x) + (y * y));
 
 			return size;
 
 		}
-		static Vec2 sizeSquare(const Vec2& u, const Vec2& v)
+
+		static float sizeSquare(const Vec2& u, const Vec2& v)
 		{
 			float x1, y1, x2, y2, vx, vy, sizesq;
 
@@ -67,27 +69,30 @@ namespace cw
 			x2 = v.x; y2 = v.y;
 			vx = x2 - x1;
 			vy = y2 - y1;
-			sizesq = sqrt((vx * vx) + (vy * vy));
+			sizesq = sqrtf((vx * vx) + (vy * vy));
 			return sizesq;
 
 		}
 
 
-		Vec2 norm(const Vec2& v)
+	 
+
+		static float normX(const Vec2& v)
 		{
-			float x, y, size, xn, yn;
 
-			x = v.x; y = v.y;
+		 	return  v.x / sqrtf((v.x * v.x) + (v.y * v.y));
 
-			size = sqrt((x * x) + (y * y));
-			xn = x / size;
-			yn = y / size;
-
-			return xn, yn;
-
-
-
+ 
 		}
+
+		static float normY(const Vec2& v)
+		{
+			  
+			return v.y / sqrtf((v.x * v.x) + (v.y * v.y));
+ 
+		}
+
+	 
 
 
 
