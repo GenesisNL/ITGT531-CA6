@@ -51,102 +51,72 @@ namespace cw
 			return Vec3(x * s, y * s, z * s);
 		}
 
-
-
-
-		Vec3 cross(const Vec3& v)
+ 
+		static float dotProduct(const Vec3& v , const Vec3& u)
 		{
+
+
+			return	(u.x*v.x) + (u.y*v.y) + (u.z*v.z);
 			 
-			return Vec3(x - v.x, y - v.y, z - v.z);
-		}
-
-
-		static Vec3 dotProduct(const Vec3& v , const Vec3& u)
-		{
-
-			int a1, b1, c1, a2, b2, c2, dot;
-
-			a1 = u.x; b1 = u.y; c1 = u.z;
-			a2 = v.x; b2 = v.y; c2 = v.z;
-		 
-			dot =(a1*a2)+(b1*b2)+(c1*c2) ;
-
-			return dot;
-
 		}
  
 
 
-		static Vec3 crossProduct(const Vec3& u, const Vec3& v)
+		Vec3  crossProduct(const Vec3& u, const Vec3& v)
 		{
-
 			 
-			int a, b, c, d, e, f,iv,jv,kv;
-
-			a = u.x; b = u.y; c = u.z;
-			d = v.x; e = v.y; f = v.z;
-			iv = (b * f) - (e * c);
-			jv = (-1) * ((a * f) - (d * c));
-			kv = (-1) * ((a * e) - (d * b));
-
-			if (jv > 0 && kv > 0) {
-				return std::cout << iv << "i + " << jv << "j +" << kv << "k";
-			}
-			else if (jv > 0) {
-				return std::cout << iv << "i + " << jv << "j" << kv << "k";
-			}
-			else if (kv > 0) {
-				return std::cout << iv << "i " << jv << "j +" << kv << "k";
-			}
-			else {
-				return std::cout << iv << "i " << jv << "j" << kv << "k";
-			}
-
+			return Vec3((u.y * v.z) - (u.z *v.y), ((u.z * v.x) - (u.x * v.z)), ((u.x * v.y) - (v.x* u.y)));
 
 		}
 
-		Vec3 size(const Vec3& v)
+
+
+		static float size(const Vec3& v)
 		{
 			float x, y,z, size;
 
 			x = v.x; y = v.y; z = v.z;
 
-			size = sqrt((x * x) + (y * y) + (z * z));
+			size = sqrtf((x * x) + (y * y) + (z * z));
+
 			return size;
 
 		}
 
-		static Vec3 sizeSquare(const Vec3& u, const Vec3& v)
+		static float sizeSquare(const Vec3& u, const Vec3& v)
 		{
 			float x1, y1,z1,x2,y2,z2,vx,vy,vz, sizesq;
 
 			x1 = u.x; y1 = u.y; z1 = u.z;
-			x2 = v.x; y2 = v.y; z2 = u.z;
+			x2 = v.x; y2 = v.y; z2 = v.z;
 			vx = x2 - x1;
 			vy = y2 - y1;
 			vz = z2 - z1;
-			sizesq = sqrt((vx * vx) + (vy * vy) + (vz * vz));
+			sizesq = sqrtf((vx * vx) + (vy * vy) + (vz * vz));
+
 			return sizesq;
 
 
 		}
 
-		Vec3 norm(const Vec3& v)
+		static float  normX(const Vec3& v)
 		{
-			float x, y, z,size, xn,yn,zn;
-
-			x = v.x; y = v.y; z = v.z;
-
-			size = sqrt((x * x) + (y * y) + (z * z));
-				xn = x / size;
-				yn = y / size;
-				zn = z / size;
-				return xn, yn, zn;
-			
-
+		  	return v.x / sqrtf((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
 
 		}
 
+		static float  normY(const Vec3& v)
+		{
+		 
+			return v.y / sqrtf((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+
+		}
+
+		static float normZ(const Vec3& v)
+		{
+			return v.z / sqrtf((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+
+		}
 
 
 	};
